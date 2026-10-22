@@ -83,7 +83,9 @@ are kept in the repository.
    converted to `actual_duration.csv`.
 2. In a notebook, run:
 
-```
+``
+pip install -r requirements.txt
+````
 !pip install pyspark -q
 from google.colab import drive
 drive.mount('/content/drive')
