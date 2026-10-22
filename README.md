@@ -100,13 +100,26 @@ regional: rows=295,692 total=742,804,525 -> OK
 categories: rows=817,394 total=296,046,770 -> OK
 duration: rows=137,793 total=167,980,692 -> OK
 ```
+## How to run the tests
 
+The tests read the clean Parquet files, so run the transform first
+(it prints three OK lines), then:
+
+```
+pip install pytest
+CLEAN_DIR=/path/to/clean python -m pytest -v
+```
+
+Expected result: 27 passed. The tests cover row counts, totals
+preserved, no duplicate keys, no double spaces, day-first dates,
+positive counts, no BOM in column names, and small tests that run
+made-up rows through each transform function.
 ## Status
 
 - [x] Read all three files with explicit schemas
 - [x] Clean the regional, categories and duration files
 - [x] Write Parquet partitioned by month and check totals
-- [ ] pytest test suite
+- [ ] pytest test suite (27 tests)
 - [ ] Star schema design and load step
 - [ ] Dashboard
 
