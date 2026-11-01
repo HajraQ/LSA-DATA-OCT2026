@@ -1,91 +1,52 @@
-"""Extract step: copy the raw files into data/raw/, convert the Excel file
-to CSV, and write manifest.json describing what was extracted.
-
-Raw files are never edited. Everything later can be rebuilt from here.
-"""
-import csv
-import hashlib
-import json
-import os
-import shutil
+import hashlib, json, shutil, sys
 from datetime import datetime, timezone
-from pathlib import Path
-
 import pandas as pd
-
-ROOT = Path(__file__).resolve().parents[1]
-
-# Where the original files are (change with SOURCE_DIR if yours differ)
-SOURCE_DIR = Path(os.environ.get("SOURCE_DIR", "/content/drive/MyDrive/LSA_Oct2026/raw"))
-# Where the raw copy goes (git-ignored)
-RAW_DIR = Path(os.environ.get("RAW_DIR", ROOT / "data" / "raw"))
-
-CSV_FILES = ["appointments_regional.csv", "national_categories.csv"]
-EXCEL_FILE = "actual_duration.csv.xlsx"     # really Excel, despite the name
-DURATION_CSV = "actual_duration.csv"
-
-EXPECTED_ROWS = {
-    "appointments_regional.csv": 596_821,
-    "national_categories.csv": 817_394,
-    "actual_duration.csv": 137_793,
-}
+from config import RAW_SRC, RAW, DOCS, FILES, EXPECTED_RAW_ROWS
 
 
-def sha256_of(path):
+def sha256(path):
     h = hashlib.sha256()
     with open(path, "rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b""):
-            h.update(chunk)
+        for block in iter(lambda: f.read(1 << 20), b""):
+            h.update(block)
     return h.hexdigest()
 
 
-def count_csv_rows(path):
-    """Data rows, not counting the header. utf-8-sig ignores a BOM."""
-    with open(path, newline="", encoding="utf-8-sig") as f:
-        return sum(1 for _ in csv.reader(f)) - 1
+def count_rows(csv_path):
+    # header excluded; utf-8-sig so a BOM never counts as data
+    return sum(len(c) for c in pd.read_csv(csv_path, dtype=str, encoding="utf-8-sig", chunksize=200_000))
 
 
-def entry(path, extracted_at, **extra):
-    return {
-        "file": path.name,
-        "size_bytes": path.stat().st_size,
-        "sha256": sha256_of(path),
-        "row_count": count_csv_rows(path),
-        "extracted_at": extracted_at,
-        **extra,
-    }
-
-
-def main():
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    files = []
-
-    # 1. Copy the two CSV files unchanged
-    for name in CSV_FILES:
-        shutil.copy2(SOURCE_DIR / name, RAW_DIR / name)
-        files.append(entry(RAW_DIR / name, now))
-
-    # 2. Copy the Excel file unchanged, then convert it to CSV
-    shutil.copy2(SOURCE_DIR / EXCEL_FILE, RAW_DIR / EXCEL_FILE)
-    pd.read_excel(RAW_DIR / EXCEL_FILE).to_csv(RAW_DIR / DURATION_CSV, index=False)
-    files.append(entry(RAW_DIR / DURATION_CSV, now,
-                       converted_from=EXCEL_FILE,
-                       source_sha256=sha256_of(RAW_DIR / EXCEL_FILE)))
-
-    # 3. Check row counts against the known values
-    for f in files:
-        expected = EXPECTED_ROWS[f["file"]]
-        status = "OK" if f["row_count"] == expected else "MISMATCH"
-        print(f"{f['file']}: rows={f['row_count']:,} -> {status}")
-        if status == "MISMATCH":
-            raise ValueError(f"{f['file']}: expected {expected:,} rows")
-
-    # 4. Write the manifest
-    with open(RAW_DIR / "manifest.json", "w") as fh:
-        json.dump({"extracted_at": now, "files": files}, fh, indent=2)
-    print(f"manifest written to {RAW_DIR / 'manifest.json'}")
+def extract():
+    RAW.mkdir(parents=True, exist_ok=True)
+    DOCS.mkdir(parents=True, exist_ok=True)
+    entries = []
+    for key, f in FILES.items():
+        src, dst = RAW_SRC / f["src"], RAW / f["src"]
+        if src.resolve() != dst.resolve():
+            shutil.copy2(src, dst)                   # raw files are copied, never edited
+        csv_path = RAW / f["csv"]
+        if dst.suffix.lower() == ".xlsx":            # really an Excel file despite the name
+            pd.read_excel(dst, dtype=str).to_csv(csv_path, index=False, encoding="utf-8")
+        entries.append({
+            "key": key,
+            "file": f["csv"],
+            "converted_from": f["src"] if f["csv"] != f["src"] else None,
+            "size_bytes": csv_path.stat().st_size,
+            "sha256": sha256(csv_path),
+            "row_count": count_rows(csv_path),
+            "extracted_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        })
+    got = {e["row_count"] for e in entries}
+    assert got == EXPECTED_RAW_ROWS, f"row counts {sorted(got)} != expected {sorted(EXPECTED_RAW_ROWS)}"
+    (DOCS / "manifest.json").write_text(json.dumps(entries, indent=2))
+    return entries
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        for e in extract():
+            print(f"{e['file']:28s} {e['row_count']:>9,} rows  {e['size_bytes']/1e6:7.1f} MB  OK")
+    except AssertionError as err:
+        print(f"CHECK FAILED: {err}", file=sys.stderr)
+        sys.exit(2)

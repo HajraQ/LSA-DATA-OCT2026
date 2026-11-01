@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-10-31T23:09:05+00:00",
+  "summary": "9/9 passed",
+  "checks": [
+    {
+      "check": 1,
+      "name": "fact_appointments_monthly total matches transform total",
+      "status": "PASS",
+      "detail": "warehouse 742,804,525 | expected 742,804,525 | transform output 742,804,525"
+    },
+    {
+      "check": 2,
+      "name": "fact_appointments_by_category total matches transform total",
+      "status": "PASS",
+      "detail": "warehouse 296,046,770 | expected 296,046,770 | transform output 296,046,770"
+    },
+    {
+      "check": 3,
+      "name": "fact_appointments_by_duration total matches transform total",
+      "status": "PASS",
+      "detail": "warehouse 167,980,692 | expected 167,980,692 | transform output 167,980,692"
+    },
+    {
+      "check": 4,
+      "name": "Regional and category monthly totals reconcile (Aug 2021 - Jun 2022)",
+      "status": "PASS",
+      "detail": "0 of 11 months differ (expected 0 of 11)"
+    },
+    {
+      "check": 5,
+      "name": "Every sub-ICB code in category and duration facts exists in dim_geography",
+      "status": "PASS",
+      "detail": "orphan rows: category 0, duration 0 (expected 0)"
+    },
+    {
+      "check": 6,
+      "name": "Every booking-wait label is a known band",
+      "status": "PASS",
+      "detail": "0 rows with an unknown label (expected 0)"
+    },
+    {
+      "check": 7,
+      "name": "Every duration label is a known band",
+      "status": "PASS",
+      "detail": "0 rows with an unknown label (expected 0)"
+    },
+    {
+      "check": 8,
+      "name": "No null dates or counts in the category fact",
+      "status": "PASS",
+      "detail": "null dates 0, null counts 0 (expected 0)"
+    },
+    {
+      "check": 9,
+      "name": "Duration covers at least 90% of category appointments each month",
+      "status": "PASS",
+      "detail": "lowest 90.9% in 2021-12 across 7 months (need at least 90%)"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "key": "regional",
+    "rows": 295692,
+    "total": 742804525,
+    "month_folders": 30,
+    "count_col": "count_of_appointments",
+    "date_col": "appointment_month"
+  },
+  {
+    "key": "categories",
+    "rows": 817394,
+    "total": 296046770,
+    "month_folders": 11,
+    "count_col": "count_of_appointments",
+    "date_col": "appointment_date"
+  },
+  {
+    "key": "duration",
+    "rows": 137793,
+    "total": 167980692,
+    "month_folders": 7,
+    "count_col": "count_of_appointments",
+    "date_col": "appointment_date"
+  }
+]

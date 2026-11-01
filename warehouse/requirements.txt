@@ -1,0 +1,6 @@
+pandas<3
+openpyxl
+pyarrow
+pyspark
+duckdb
+pytest
