@@ -6,7 +6,7 @@
     "size_bytes": 38723935,
     "sha256": "821ead75b094778f0f40807b0c524c7b6b01135773b12dcb6d0de5ab5ab0926f",
     "row_count": 596821,
-    "extracted_at": "2026-10-31T23:07:31+00:00"
+    "extracted_at": "2026-11-02T11:35:34+00:00"
   },
   {
     "key": "categories",
@@ -15,7 +15,7 @@
     "size_bytes": 111908809,
     "sha256": "3acab693f9425eb3e76a1b378b0c1f809999d2b5e399498a0dccb7f350b5562f",
     "row_count": 817394,
-    "extracted_at": "2026-10-31T23:07:32+00:00"
+    "extracted_at": "2026-11-02T11:35:36+00:00"
   },
   {
     "key": "duration",
@@ -24,6 +24,6 @@
     "size_bytes": 15402648,
     "sha256": "328893199e40777a38dda6deabd3523237e682f3368f1f1e2f657537620804b0",
     "row_count": 137793,
-    "extracted_at": "2026-10-31T23:07:42+00:00"
+    "extracted_at": "2026-11-02T11:35:53+00:00"
   }
 ]

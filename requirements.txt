@@ -1,4 +1,9 @@
-pyspark
-pandas
+pandas<3
 openpyxl
+pyarrow
+pyspark
+duckdb
 pytest
+streamlit
+plotly
+matplotlib

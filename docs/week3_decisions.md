@@ -1,4 +1,3 @@
-
 ## Week 3 decisions (load and automate)
 
 - **Three fact tables, not one.** They have different grains and different date ranges (30, 11 and 7 months). One table would invent appointments that were never reported.

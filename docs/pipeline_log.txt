@@ -1,60 +1,45 @@
-2026-10-31T23:01:24  extract   OK   596,821 / 817,394 / 137,793   (12s)
-2026-10-31T23:02:44  transform OK   295,692 regional rows   742,804,525 appointments   (80s)
-2026-10-31T23:02:47  load      OK   3 facts, 5 dimensions   (3s)
-2026-10-31T23:02:47    check 1 PASS: warehouse 742,804,525 | expected 742,804,525 | transform output 742,804,525
-2026-10-31T23:02:47    check 2 PASS: warehouse 296,046,770 | expected 296,046,770 | transform output 296,046,770
-2026-10-31T23:02:47    check 3 PASS: warehouse 167,980,692 | expected 167,980,692 | transform output 167,980,692
-2026-10-31T23:02:47    check 4 PASS: 0 of 11 months differ (expected 0 of 11)
-2026-10-31T23:02:47    check 5 PASS: orphan rows: category 0, duration 0 (expected 0)
-2026-10-31T23:02:47    check 6 PASS: 0 rows with an unknown label (expected 0)
-2026-10-31T23:02:47    check 7 PASS: 0 rows with an unknown label (expected 0)
-2026-10-31T23:02:47    check 8 PASS: null dates 0, null counts 0 (expected 0)
-2026-10-31T23:02:47    check 9 PASS: lowest 90.9% in 2021-12 across 7 months (need at least 90%)
-2026-10-31T23:02:47  checks    OK   9/9 passed
-2026-10-31T23:02:47  warehouse: fact_appointments_monthly rows=295,692 total=742,804,525; fact_appointments_by_category rows=817,394 total=296,046,770; fact_appointments_by_duration rows=137,793 total=167,980,692
-2026-10-31T23:02:47  done in 95s, exit 0
-2026-10-31T23:04:31  extract   OK   596,821 / 817,394 / 137,793   (12s)
-2026-10-31T23:05:48  transform OK   295,692 regional rows   742,804,525 appointments   (77s)
-2026-10-31T23:05:54  load      OK   3 facts, 5 dimensions   (6s)
-2026-10-31T23:05:54    check 1 PASS: warehouse 742,804,525 | expected 742,804,525 | transform output 742,804,525
-2026-10-31T23:05:54    check 2 PASS: warehouse 296,046,770 | expected 296,046,770 | transform output 296,046,770
-2026-10-31T23:05:54    check 3 PASS: warehouse 167,980,692 | expected 167,980,692 | transform output 167,980,692
-2026-10-31T23:05:54    check 4 PASS: 0 of 11 months differ (expected 0 of 11)
-2026-10-31T23:05:54    check 5 PASS: orphan rows: category 0, duration 0 (expected 0)
-2026-10-31T23:05:54    check 6 PASS: 0 rows with an unknown label (expected 0)
-2026-10-31T23:05:54    check 7 PASS: 0 rows with an unknown label (expected 0)
-2026-10-31T23:05:54    check 8 PASS: null dates 0, null counts 0 (expected 0)
-2026-10-31T23:05:54    check 9 PASS: lowest 90.9% in 2021-12 across 7 months (need at least 90%)
-2026-10-31T23:05:54  checks    OK   9/9 passed
-2026-10-31T23:05:54  warehouse: fact_appointments_monthly rows=295,692 total=742,804,525; fact_appointments_by_category rows=817,394 total=296,046,770; fact_appointments_by_duration rows=137,793 total=167,980,692
-2026-10-31T23:05:54  done in 95s, exit 0
-2026-10-31T23:06:08  extract   OK   596,821 / 817,394 / 137,793   (13s)
-2026-10-31T23:07:26  transform OK   295,692 regional rows   742,804,525 appointments   (78s)
-2026-10-31T23:07:30  load      OK   3 facts, 5 dimensions   (4s)
-2026-10-31T23:07:30    check 1 PASS: warehouse 742,804,525 | expected 742,804,525 | transform output 742,804,525
-2026-10-31T23:07:30    check 2 PASS: warehouse 296,046,770 | expected 296,046,770 | transform output 296,046,770
-2026-10-31T23:07:30    check 3 PASS: warehouse 167,980,692 | expected 167,980,692 | transform output 167,980,692
-2026-10-31T23:07:30    check 4 PASS: 0 of 11 months differ (expected 0 of 11)
-2026-10-31T23:07:30    check 5 PASS: orphan rows: category 0, duration 0 (expected 0)
-2026-10-31T23:07:30    check 6 PASS: 0 rows with an unknown label (expected 0)
-2026-10-31T23:07:30    check 7 PASS: 0 rows with an unknown label (expected 0)
-2026-10-31T23:07:30    check 8 PASS: null dates 0, null counts 0 (expected 0)
-2026-10-31T23:07:30    check 9 PASS: lowest 90.9% in 2021-12 across 7 months (need at least 90%)
-2026-10-31T23:07:30  checks    OK   9/9 passed
-2026-10-31T23:07:30  warehouse: fact_appointments_monthly rows=295,692 total=742,804,525; fact_appointments_by_category rows=817,394 total=296,046,770; fact_appointments_by_duration rows=137,793 total=167,980,692
-2026-10-31T23:07:30  done in 95s, exit 0
-2026-10-31T23:07:42  extract   OK   596,821 / 817,394 / 137,793   (12s)
-2026-10-31T23:09:01  transform OK   295,692 regional rows   742,804,525 appointments   (80s)
-2026-10-31T23:09:05  load      OK   3 facts, 5 dimensions   (4s)
-2026-10-31T23:09:05    check 1 PASS: warehouse 742,804,525 | expected 742,804,525 | transform output 742,804,525
-2026-10-31T23:09:05    check 2 PASS: warehouse 296,046,770 | expected 296,046,770 | transform output 296,046,770
-2026-10-31T23:09:05    check 3 PASS: warehouse 167,980,692 | expected 167,980,692 | transform output 167,980,692
-2026-10-31T23:09:05    check 4 PASS: 0 of 11 months differ (expected 0 of 11)
-2026-10-31T23:09:05    check 5 PASS: orphan rows: category 0, duration 0 (expected 0)
-2026-10-31T23:09:05    check 6 PASS: 0 rows with an unknown label (expected 0)
-2026-10-31T23:09:05    check 7 PASS: 0 rows with an unknown label (expected 0)
-2026-10-31T23:09:05    check 8 PASS: null dates 0, null counts 0 (expected 0)
-2026-10-31T23:09:05    check 9 PASS: lowest 90.9% in 2021-12 across 7 months (need at least 90%)
-2026-10-31T23:09:05  checks    OK   9/9 passed
-2026-10-31T23:09:05  warehouse: fact_appointments_monthly rows=295,692 total=742,804,525; fact_appointments_by_category rows=817,394 total=296,046,770; fact_appointments_by_duration rows=137,793 total=167,980,692
-2026-10-31T23:09:05  done in 96s, exit 0
+2026-11-02T11:27:06  extract   OK   596,821 / 817,394 / 137,793   (22s)
+2026-11-02T11:29:16  transform OK   295,692 regional rows   742,804,525 appointments   (130s)
+2026-11-02T11:29:23  load      OK   3 facts, 5 dimensions   (8s)
+2026-11-02T11:29:23    check 1 PASS: warehouse 742,804,525 | expected 742,804,525 | transform output 742,804,525
+2026-11-02T11:29:23    check 2 PASS: warehouse 296,046,770 | expected 296,046,770 | transform output 296,046,770
+2026-11-02T11:29:23    check 3 PASS: warehouse 167,980,692 | expected 167,980,692 | transform output 167,980,692
+2026-11-02T11:29:23    check 4 PASS: 0 of 11 months differ (expected 0 of 11)
+2026-11-02T11:29:23    check 5 PASS: orphan rows: category 0, duration 0 (expected 0)
+2026-11-02T11:29:23    check 6 PASS: 0 rows with an unknown label (expected 0)
+2026-11-02T11:29:23    check 7 PASS: 0 rows with an unknown label (expected 0)
+2026-11-02T11:29:23    check 8 PASS: null dates 0, null counts 0 (expected 0)
+2026-11-02T11:29:23    check 9 PASS: lowest 90.9% in 2021-12 across 7 months (need at least 90%)
+2026-11-02T11:29:23  checks    OK   9/9 passed
+2026-11-02T11:29:23  warehouse: fact_appointments_monthly rows=295,692 total=742,804,525; fact_appointments_by_category rows=817,394 total=296,046,770; fact_appointments_by_duration rows=137,793 total=167,980,692
+2026-11-02T11:29:23  done in 160s, exit 0
+2026-11-02T11:31:13  extract   OK   596,821 / 817,394 / 137,793   (22s)
+2026-11-02T11:33:22  transform OK   295,692 regional rows   742,804,525 appointments   (129s)
+2026-11-02T11:33:30  load      OK   3 facts, 5 dimensions   (7s)
+2026-11-02T11:33:30    check 1 PASS: warehouse 742,804,525 | expected 742,804,525 | transform output 742,804,525
+2026-11-02T11:33:30    check 2 PASS: warehouse 296,046,770 | expected 296,046,770 | transform output 296,046,770
+2026-11-02T11:33:30    check 3 PASS: warehouse 167,980,692 | expected 167,980,692 | transform output 167,980,692
+2026-11-02T11:33:30    check 4 PASS: 0 of 11 months differ (expected 0 of 11)
+2026-11-02T11:33:30    check 5 PASS: orphan rows: category 0, duration 0 (expected 0)
+2026-11-02T11:33:30    check 6 PASS: 0 rows with an unknown label (expected 0)
+2026-11-02T11:33:30    check 7 PASS: 0 rows with an unknown label (expected 0)
+2026-11-02T11:33:30    check 8 PASS: null dates 0, null counts 0 (expected 0)
+2026-11-02T11:33:30    check 9 PASS: lowest 90.9% in 2021-12 across 7 months (need at least 90%)
+2026-11-02T11:33:30  checks    OK   9/9 passed
+2026-11-02T11:33:30  warehouse: fact_appointments_monthly rows=295,692 total=742,804,525; fact_appointments_by_category rows=817,394 total=296,046,770; fact_appointments_by_duration rows=137,793 total=167,980,692
+2026-11-02T11:33:30  done in 159s, exit 0
+2026-11-02T11:35:53  extract   OK   596,821 / 817,394 / 137,793   (20s)
+2026-11-02T11:38:04  transform OK   295,692 regional rows   742,804,525 appointments   (131s)
+2026-11-02T11:38:13  load      OK   3 facts, 5 dimensions   (9s)
+2026-11-02T11:38:13    check 1 PASS: warehouse 742,804,525 | expected 742,804,525 | transform output 742,804,525
+2026-11-02T11:38:13    check 2 PASS: warehouse 296,046,770 | expected 296,046,770 | transform output 296,046,770
+2026-11-02T11:38:13    check 3 PASS: warehouse 167,980,692 | expected 167,980,692 | transform output 167,980,692
+2026-11-02T11:38:13    check 4 PASS: 0 of 11 months differ (expected 0 of 11)
+2026-11-02T11:38:13    check 5 PASS: orphan rows: category 0, duration 0 (expected 0)
+2026-11-02T11:38:13    check 6 PASS: 0 rows with an unknown label (expected 0)
+2026-11-02T11:38:13    check 7 PASS: 0 rows with an unknown label (expected 0)
+2026-11-02T11:38:13    check 8 PASS: null dates 0, null counts 0 (expected 0)
+2026-11-02T11:38:13    check 9 PASS: lowest 90.9% in 2021-12 across 7 months (need at least 90%)
+2026-11-02T11:38:13  checks    OK   9/9 passed
+2026-11-02T11:38:13  warehouse: fact_appointments_monthly rows=295,692 total=742,804,525; fact_appointments_by_category rows=817,394 total=296,046,770; fact_appointments_by_duration rows=137,793 total=167,980,692
+2026-11-02T11:38:13  done in 161s, exit 0
