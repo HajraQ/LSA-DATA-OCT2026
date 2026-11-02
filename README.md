@@ -1,5 +1,9 @@
 # NHS GP Appointments: ETL pipeline and dashboard
 
+
+<img width="1430" height="780" alt="q1_volumes" src="https://github.com/user-attachments/assets/f3d4ddcc-bb33-4936-be13-9fa1146b708d" />
+
+
 **Question from an NHS primary care manager:** how is GP appointment capacity being used, and where is it being lost?
 
 I built a pipeline that extracts three NHS England files, cleans them with PySpark, loads a star schema into DuckDB, runs nine data-quality checks, and answers the question in a Streamlit dashboard. England, January 2020 to June 2022.
@@ -58,4 +62,5 @@ The three files hold about 1.55 million rows and 166 MB as CSV. That fits comfor
 
 ## Data source
 
-NHS England, Appointments in General Practice. The three CSV files were provided by the course as a cleaned extract. The data is aggregated counts only and must not be combined with other data to identify a practice or a person. Check the publication page for the licence terms.
+NHS England, Appointments in General Practice. The three CSV files were provided by the course as a cleaned extract. The data is aggregated counts only and must not be combined with other data to identify a practice or a person. Check the publication page for the licence terms.<img width="1430" height="780" alt="q1_volumes" src="https://github.com/user-attachments/assets/5093ed06-c4fe-4f8c-bc7a-d5cf4be9f2ba" />
+
