@@ -1,7 +1,7 @@
 # NHS GP Appointments: ETL pipeline and dashboard
 I built a pipeline that extracts three NHS England files, cleans them with PySpark, loads a star schema into DuckDB, runs nine data-quality checks, and answers the question in a Streamlit dashboard. England, January 2020 to June 2022.
 
-<img width="1430" height="780" alt="q1_volumes" src="https://github.com/user-attachments/assets/f3d4ddcc-bb33-4936-be13-9fa1146b708d" />
+
 
 
 **Question from an NHS primary care manager:** how is GP appointment capacity being used, and where is it being lost?
